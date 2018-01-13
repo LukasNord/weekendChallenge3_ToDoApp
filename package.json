@@ -1,0 +1,17 @@
+{
+  "name": "code_challenge3_to_do_app",
+  "version": "1.0.0",
+  "description": "'week3 challenge to-do-app'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "author": "Lukas Nord",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "pg": "^7.4.1"
+  }
+}

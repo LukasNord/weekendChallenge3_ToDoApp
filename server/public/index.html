@@ -6,17 +6,52 @@
         <title>To Do Application</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link rel="stylesheet" href="/styles/main.css">
         <script src="/vendors/jquery.min.js"></script>
         <script src="/scripts/client.js"></script>
         
     </head>
-    <body>
-      <h1>test</h1>
+    <body class="container">
+        <!--header-->
+        <div class="site-header">
+            <label class="logo">To Do App</label>
+                
+                    
+                    <ul class="nav-ul">
+                        <li id="addTask" class="navBtn">Add Task</li>
+                        <li id="showActiveTasks" class="navBtn">Active Tasks</li>
+                        <li id="showCompletedTasks" class="navBtn">Completed Tasks</li>
+                    </ul>
+                    
+                
+        </div>
+        <!--Center Column-->
+        <div class="main-body">
+            <div class="middle-content">
+                <div class="active-task-container">
 
-
-
-
-        
+                    <p class="task-name">Task Name</p>
+                    <p class="task-description-label">Task Description</p>
+                    <p class="task-description-body">IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM </p>
+                    <div class="owner-date-container">
+                        <div class="task-owner-container">
+                            <p class="task-owner-label">Task Owner</p>
+                            <p class="task-owner-data">Lukas Nord</p>
+                        </div>
+                        <div class="date-due-container">
+                            <p class="task-due-date-label">Due Date</p>
+                            <p class="task-due-date">1/1/2018</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="side-bar-left">left bar</div>
+            <div class="side-bar-right">right bar</div>
+        </div>
+        <footer class="footer"></footer>        
     </body>
 </html>

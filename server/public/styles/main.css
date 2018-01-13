@@ -1,5 +1,182 @@
-body{
-    background-color: green;
+/*  thanks to Holy-grail CSS (https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/) for the help with the below layout pattern */
 
+.container {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .main-body{
+    display: flex;
+    flex: 1;
+  }
 
+  .middle-content {
+    background-color: white;
+    flex: 1;
+  }
+  
+  .side-bar-left, .side-bar-right{
+    flex: 0 0 12em;
+    background-color: lightgray;
+  }
+  
+  .side-bar-left{
+
+    order: -1;
+  }
+  .container, .main-body {
+    display: flex;
+    flex-direction: column;
+
+  }
+  @media (min-width: 768px) {
+    .main-body {
+      flex-direction: row;
+      flex: 1;
+    }
+    .middle-content {
+      flex: 1;
+    }
+    .side-bar-left, .side-bar-right {
+      
+      flex: 0 0 12em;
+    }
+  }
+
+/* HEADER and NAV Bar*/
+@media (max-width: 600px) {
+.site-header {
+    flex-wrap: wrap;
+}
+.site-nav {
+    order: 2;
+    background: #333;
+    width: 100%;
+}
+}
+
+.site-header {
+background: rgb(28, 163, 129);
+color: white;
+display: flex;
+align-items: center;
+}
+
+.logo {
+text-decoration: none;
+color: white;
+font-size: 28px;
+
+letter-spacing: 1px;
+padding: 10px;
+margin-right: 100px;
+}
+
+.nav-ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.navBtn {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: inline-block;
+}
+.navBtn:active {
+    font-weight: bold;
+    color: #62DEBE;
+    background: darken(#62DEBE, 40%);
+    }
+
+.navBtn:hover{
+    background: rgb(12, 78, 62);
+    transform: translateY(3px);
+    
+}
+
+/*
+Task Card Styling
+*/
+
+.active-task-container {
+    
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+    padding: 20px;
+    box-shadow: 5px 8px gray;
+    width: 75%;
+    height: 250px;
+}
+.task-name{
+    font-weight: bold;
+    font-size: 28px;
+    margin: 0 auto;
+    text-align: center;
+    background: lightgreen;
+    box-shadow: 5px 5px darkgreen;
+    border-radius: 10px;
+}
+
+.task-description-label{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0px;
+
+}
+
+.task-description-body {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 40%;
+    overflow: auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.owner-date-container{
+    flex-direction: column;
+    width: auto;
+    
+}
+.task-owner-label{
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.task-owner-data{
+    font-size: 14px;
+    font-style: italic;
+    padding: 0 auto;
+    margin: 0 auto;
+}
+.task-due-date-label{
+    font-size: 18px;
+    font-weight: bold;
+    padding:0 auto;
+    margin: 0 auto;
+    
+}
+.task-due-date{
+    font-size: 14px;
+    font-style: italic;
+    padding: 0 auto;
+    margin: 0 auto;
+}
+.task-owner-container{ 
+    margin-top: 2px;
+    width: 50%;
+    order: -1;
+      
+}
+
+.date-due-container {
+    
+    
 }

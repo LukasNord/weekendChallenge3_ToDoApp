@@ -5,11 +5,12 @@
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     task VARCHAR(255) NOT NULL,
-    details VARCHAR(255),
+    details TEXT,
     completion_status BOOLEAN NOT NULL,
     due_date DATE,
     completed_date DATE,
-    date_created DATE
+    date_created DATE,
+    task_owner VARCHAR(255)
     
 );
 

@@ -16,21 +16,16 @@
         <!--header-->
         <div class="site-header">
             <label class="logo">To Do App</label>
-                
-                    
                     <ul class="nav-ul">
-                        <li id="addTask" class="navBtn">Add Task</li>
+                        <li id="createTask" class="navBtn">Create Task</li>
                         <li id="showActiveTasks" class="navBtn">Active Tasks</li>
                         <li id="showCompletedTasks" class="navBtn">Completed Tasks</li>
-                    </ul>
-                    
-                
+                    </ul>      
         </div>
         <!--Center Column-->
         <div class="main-body">
             <div class="middle-content">
                 <div class="active-task-container">
-
                     <p class="task-name">Task Name</p>
                     <p class="task-description-label">Task Description</p>
                     <p class="task-description-body">IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM </p>
@@ -43,14 +38,34 @@
                             <p class="task-due-date-label">Due Date</p>
                             <p class="task-due-date">1/1/2018</p>
                         </div>
-                        
+                    </div>    
+                </div><div class="active-task-container">
+                        <p class="task-name">Task Name</p>
+                        <p class="task-description-label">Task Description</p>
+                        <p class="task-description-body">IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM </p>
+                        <div class="owner-date-container">
+                            <div class="task-owner-container">
+                                <p class="task-owner-label">Task Owner</p>
+                                <p class="task-owner-data">Lukas Nord</p>
+                            </div>
+                            <div class="date-due-container">
+                                <p class="task-due-date-label">Due Date</p>
+                                <p class="task-due-date">1/1/2018</p>
+                            </div>
+                        </div>    
                     </div>
-                    
-                </div>
-                
+           
             </div>
+            
             <div class="side-bar-left">left bar</div>
             <div class="side-bar-right">right bar</div>
+            <div id="create-task-dialogue" class="create-task-dialogue">
+                    <div class="create-task">
+                          <label>Task Name</label><input id="createTaskName"type="text">
+                          <label>Task Description</label><input id="createTaskDescription" type="text">
+                          <label>Due Date:</label><input type="date" name="" id="createTaskDate">
+                    </div>
+            </div>
         </div>
         <footer class="footer"></footer>        
     </body>

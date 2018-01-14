@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = 5000;
+const taskManager = require('./routes/taskmanager.router')
 
 
 
@@ -9,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('server/public'));
 
+
+app.use('/taskmanager/', taskManager);
 
 
 

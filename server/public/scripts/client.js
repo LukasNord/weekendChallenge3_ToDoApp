@@ -11,9 +11,6 @@ function startUp(){
 
 
 
-
-
-
 /***************
  * Create a Task
  ****************/
@@ -66,9 +63,7 @@ function startUp(){
             duedate: $('#createTaskDate').val(),
             taskowner: $('#createTaskOwner').val(),
             taskdescription: $('#createTaskDescription').val()
-        }
-
-        console.log(newTask);
+        } //end object literal
         
         $.ajax({
             method: 'POST',
@@ -79,8 +74,8 @@ function startUp(){
                 createTaskSubmitBtn();    
                 getTasks(); 
             }         
-        });
-    }
+        }); // end POST
+    } //end if statement
  }
 
 
@@ -129,7 +124,7 @@ function getTasks(){
         let date_created = convertDate( task.date_created);
         
         $('#middle-content').append(
-            `<div class="active-task-container">
+            `<div class="active-task-container" >
                 <div>
                     <p class="task-name">${task.task}</p>
                     <p class="task-description-label">Task Description</p>  
@@ -139,11 +134,18 @@ function getTasks(){
                     <label class="task-owner-label">Task Owner</label><p class="task-owner-data">${task.task_owner}</p>     
                     <label class="task-due-date-label">Due Date</label><p class="task-due-date">${due_date}</p>          
                     <label class="bold">Date Created:</label><p class="date-created italic">${date_created} </p><br>
-                    <label class="bold not-completed">Completion Status</label>
+                    <label class="bold not-completed">Completion Status</label><br>
+                     <i id="deleteBtn" class="fa fa-trash-o icon" aria-hidden="true"></i>
                 </div>
             
             </div>`
-        );
+        
+        ); // end append
+        $('.active-task-container').data(task);
+        
+        console.log( $('.active-task-container').data() );
+        
+        
     }
 }// end appendTaskData Function
 

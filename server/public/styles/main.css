@@ -254,6 +254,20 @@ create task dialogue
 
 }
 
+.icon{
+    font-size: 24px;
+    float: right;
+    margin-top: 30px;
+}
+
+.icon:hover{
+    color: red;
+}
+
+.icon:active{
+    transform: translateY(4px);
+
+}
 
 .button{
     background-color: #4CAF50; /* Green */

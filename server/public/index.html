@@ -61,13 +61,18 @@
             <div class="side-bar-right">right bar</div>
             <div id="create-task-dialogue" class="create-task-dialogue">
                     <div class="create-task">
-                        <label>Task Name</label><input id="createTaskName"type="text">
+                        <label>Task Name:</label><input id="createTaskName"type="text">
                         <label>Due Date:</label><input type="date" name="" id="createTaskDate">
+                        <label>Task Owner:</label><input type="text">
                         
                         <div class="create-task-description-container">
-                            <label>Task Description:</label><br>
+                            
+                            <label>Task Description:</label>
+                            <br>
                             <textarea id="createTaskDescription" type="text" placeholder="Task Details here..."></textarea>
                         </div>
+                        <button id="submitCreateTask" class="button" type="submit">Submit</button>
+                        <button id="createTaskCancel" class="button" type="submit">Cancel</button>
                         
                         
                     </div>

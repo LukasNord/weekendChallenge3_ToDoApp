@@ -177,10 +177,10 @@ Task Card Styling
       
 }
 
-.date-due-container {
+/* .date-due-container {
     
     
-}
+} */
 
 
 /*******************
@@ -188,7 +188,7 @@ create task dialogue
 ********************/
 
 .create-task-dialogue {
-    border: 2px solid black;
+    
     position: fixed;
     top: 25%;
     left: 25%;
@@ -197,11 +197,30 @@ create task dialogue
     z-index: 10;
     background: white;
     display: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 8px gray;
 }
     /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
     
-}
-    
 
+.create-task-description-container {
+    margin-top: 25px;
+
+
+}
+#createTaskDescription{
+    
+    font-size: 24px;
+    text-overflow: clip;
+    border: 1px solid black;
+    outline-offset: -8px;
+    padding: 6px 0 2px 8px;
+}
+#createTaskDescription::placeholder{
+    color: gray;
+
+}
 
 

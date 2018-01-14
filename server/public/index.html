@@ -6,6 +6,8 @@
         <title>To Do Application</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link rel="stylesheet" href="/styles/main.css">
         <script src="/vendors/jquery.min.js"></script>
@@ -24,52 +26,24 @@
         </div>
         <!--Center Column-->
         <div class="main-body">
-            <div class="middle-content">
-                <div class="active-task-container">
-                    <p class="task-name">Task Name</p>
-                    <p class="task-description-label">Task Description</p>
-                    <p class="task-description-body">IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM </p>
-                    <div class="owner-date-container">
-                        <div class="task-owner-container">
-                            <p class="task-owner-label">Task Owner</p>
-                            <p class="task-owner-data">Lukas Nord</p>
-                        </div>
-                        <div class="date-due-container">
-                            <p class="task-due-date-label">Due Date</p>
-                            <p class="task-due-date">1/1/2018</p>
-                        </div>
-                    </div>    
-                </div><div class="active-task-container">
-                        <p class="task-name">Task Name</p>
-                        <p class="task-description-label">Task Description</p>
-                        <p class="task-description-body">IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM IPSEM LORUM </p>
-                        <div class="owner-date-container">
-                            <div class="task-owner-container">
-                                <p class="task-owner-label">Task Owner</p>
-                                <p class="task-owner-data">Lukas Nord</p>
-                            </div>
-                            <div class="date-due-container">
-                                <p class="task-due-date-label">Due Date</p>
-                                <p class="task-due-date">1/1/2018</p>
-                            </div>
-                        </div>    
-                    </div>
-           
+            <div id="middle-content" class="middle-content">
+                
+               
             </div>
             
             <div class="side-bar-left">left bar</div>
             <div class="side-bar-right">right bar</div>
             <div id="create-task-dialogue" class="create-task-dialogue">
                     <div class="create-task">
-                        <label>Task Name:</label><input id="createTaskName"type="text">
-                        <label>Due Date:</label><input type="date" name="" id="createTaskDate">
-                        <label>Task Owner:</label><input id="createTaskOwner" type="text">
+                        <label class="bold">Task Name:</label><input id="createTaskName"type="text">
+                        <label class="bold">Due Date:</label><input type="date" name="" id="createTaskDate"><br>
+                        <label class="bold">Task Owner:</label><input id="createTaskOwner" type="text">
                         
                         <div class="create-task-description-container">
                             
-                            <label>Task Description:</label>
+                            <label class="bold">Task Description:</label>
                             <br>
-                            <textarea id="createTaskDescription" type="text" placeholder="Task Details here..."></textarea>
+                            <textarea id="createTaskDescription" class="italic" type="text" placeholder="Task Details here..."></textarea>
                         </div>
                         <button id="submitCreateTask" class="button" type="submit">Submit</button>
                         <button id="createTaskCancel" class="button" type="submit">Cancel</button>

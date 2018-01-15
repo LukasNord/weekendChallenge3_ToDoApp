@@ -22,7 +22,7 @@ router.post('/', (req,res) => {
 
 //SELECT all tasks currently in data base and send to Client.
 router.get('/', (req,res)=> {
-    const queryText = 'SELECT * FROM tasks';
+    const queryText = 'SELECT * FROM tasks ORDER BY id ASC';
     pool.query(queryText)
         .then( ( result)=>{
             res.send(result.rows);

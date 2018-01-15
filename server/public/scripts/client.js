@@ -191,6 +191,8 @@ function updateStatus(){
     //works if it's the only task, but if there are multiple tasks it is fetching the task id from the top first then in descending order..
     //Today is Angular so maybe i'll just swap this all out for Angular.
     let task = $(this).parent().parent('#activeTaskContainer').data();
+    console.log(task.id);
+    
     $.ajax({
         method: 'PUT',
         url: '/taskmanager/'+ task.id,

@@ -1,5 +1,4 @@
 
-
 $(document).ready(startUp);
 
 function startUp(){
@@ -10,8 +9,6 @@ function startUp(){
     $('#middle-content').on('click', '#deleteBtn', deleteTask);
     $('#middle-content').on('click','#markComplete', updateStatus);
 }
-
-
 
 /********************
  * Create a Task
@@ -144,9 +141,12 @@ function getTasks(){
             </div>`
         
         ); // end append
+        //put data for task into the container element for later use
         $('#activeTaskContainer').data(task);
-        let markGreen = task.completion_status;
-            if( markGreen == true){
+
+        //styling logic based on status.  This... doesn't work perfectly.
+         
+            if( task.completion_status == true){
                $('#activeTaskContainer').addClass('completed');
                $('#markComplete').html('Completed!');
             }else{console.log('not completed');}
@@ -187,14 +187,15 @@ function deleteTask(){
  **********************/
 
 function updateStatus(){
-
+    //jquery selector in this section isn't getting the appropriate data... which is weird. 
+    //works if it's the only task, but if there are multiple tasks it is fetching the task id from the top first then in descending order..
+    //Today is Angular so maybe i'll just swap this all out for Angular.
     let task = $(this).parent().parent('#activeTaskContainer').data();
     $.ajax({
         method: 'PUT',
         url: '/taskmanager/'+ task.id,
         success: (response)=>{
             getTasks();
-             
         }
     });
     

@@ -1,20 +1,19 @@
--- Database setup file
 
 --Create table to store tasks.
 
 CREATE TABLE tasks (
     id SERIAL PRIMARY KEY,
     task VARCHAR(255) NOT NULL,
-    details TEXT,
+    details VARCHAR(255),
     completion_status BOOLEAN NOT NULL DEFAULT FALSE,
     due_date DATE,
-    completed_date DATE,
     date_created DATE DEFAULT now(),
-    task_owner VARCHAR(255)
+    task_owner VARCHAR(255),
+    completed_date DATE
     
 );
 
-
+DROP TABLE tasks;
 --Create table to store Categories. 
 
 CREATE TABLE categories (
@@ -23,7 +22,7 @@ CREATE TABLE categories (
 );
 	
 	
---CREATE Junction Table. Not use currently.
+--CREATE Junction Table
 
 CREATE TABLE tasks_categories (
 	id SERIAL PRIMARY KEY,
@@ -43,15 +42,26 @@ VALUES ('walk the dog','go for a walk with Baloo', FALSE);
 INSERT INTO tasks_categories(task_id,category_id)
 VALUES(1,3),(1,4);
 
---practice a join just for funsies
-SELECT tasks.task, categories.category
-FROM tasks
-JOIN tasks_categories ON tasks.id = tasks_categories.task_id
-JOIN categories ON tasks_categories.category_id = categories.id
-GROUP BY tasks.task, tasks.details,categories.category;
+SELECT * FROM tasks;
+--FROM tasks
+--JOIN tasks_categories ON tasks.id = tasks_categories.task_id
+--JOIN categories ON tasks_categories.category_id = categories.id
+--GROUP BY tasks.task,tasks.task_owner,tasks.completion_status,tasks.due_date,tasks.date_created;
+
+
+ALTER TABLE tasks 
+ADD completed_date DATE;
 
 
 
+SELECT * FROM tasks;
 
 
+ALTER TABLE tasks add date_created date default now();
+
+INSERT INTO tasks (task,details, due_date, task_owner)
+VALUES('Eat Soup', 'make soup and eat it', '1/29/2018','Lukas');
+
+
+INSERT INTO tasks (task,details, due_date, task_owner)VALUES('Eat Soup', 'make soup and eat it', '1/29/2018','Lukas');
 

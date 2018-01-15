@@ -19,7 +19,7 @@ router.post('/', (req,res) => {
             res.sendStatus(500);
         })
   });
-  
+
 //SELECT all tasks currently in data base and send to Client.
 router.get('/', (req,res)=> {
     const queryText = 'SELECT * FROM tasks';
@@ -32,6 +32,47 @@ router.get('/', (req,res)=> {
             res.sendStatus(500);
         })
 });
+
+//Delete a task 
+
+router.delete('/:id', (req,res)=> {
+    const queryText = 'DELETE FROM tasks WHERE id=$1';
+    pool.query(queryText, [req.params.id] )
+    .then( ( result )=> {
+        console.log('successfully deleted item id: ',req.params.id);
+        res.sendStatus(200);
+    })
+    .catch( (err) =>{
+        console.log('error deleting item', err);
+        res.sendStatus(500);       
+    });
+}); //end DELETE
+
+
+//UPDATE task completion status
+router.put('/:id', (req,res)=> {
+    const queryText = 'UPDATE tasks SET completion_status = TRUE WHERE id=$1 RETURNING completion_status';
+    pool.query(queryText, [req.params.id] )
+    .then( ( result )=>{
+        res.send(result.rows);
+         })
+    .catch( (err)=>{
+        console.log('error updating status: ', err);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

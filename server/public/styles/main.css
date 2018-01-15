@@ -185,14 +185,12 @@ Active Task Card Styling
       
 }
 
-/* Makes our check mark by Rotating a capital L*/
-
 
 .completed{
     background: green;
     color: white;
 }
-.not-completed {
+.red {
     background: red;
     color: white
 }
@@ -256,8 +254,11 @@ create task dialogue
 
 .icon{
     font-size: 24px;
-    float: right;
+    margin-left: 250px;
     margin-top: 30px;
+    margin-right:5px;
+    padding-right: 0px;
+    width:10px;
 }
 
 .icon:hover{
@@ -289,3 +290,4 @@ create task dialogue
     transform: translateY(3px);
     
 }
+

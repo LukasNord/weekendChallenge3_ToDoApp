@@ -7,39 +7,45 @@ function startUp(){
     $('#createTask').on('click', createTaskDialogue );
     $('#createTaskCancel').on('click', createTaskCancelBtn);
     $('#submitCreateTask').on('click', submitCreatedTask);
+    $('#middle-content').on('click', '#deleteBtn', deleteTask);
+    $('#middle-content').on('click','#markComplete', updateStatus);
 }
 
 
 
-/***************
+/********************
  * Create a Task
- ****************/
+ ********************/
 
- //pop up the task creation dialogue box
+ //Opens Create Task Dialogue Box
  function createTaskDialogue(){
     $('.middle-content').css('opacity',0.1);
     $('#create-task-dialogue').css('display','block');
 
  }
+//Clears out the Create Task Dialogue when submit button is pressed.
+function toggleClassDialogueBox(){
 
- //clear inputs and restore back to starting state.
+    $('#create-task-dialogue').css('display','none');
+    $('.middle-content').css('opacity', 1);
+    
+ }
+
+
+ //clear inputs from create task dialogue  box and restore back to starting state.
  function createTaskCancelBtn(){
     $('#create-task-dialogue').find('input:text').val(''); 
     $('#createTaskDescription').val('');
     $('#createTaskDate').val('');
-    $('#create-task-dialogue').css('display','none');
-    $('.middle-content').css('opacity', 1);
-    getTasks(); //just in case this is multiple people using the app it will pull any tasks added while in the dialogue.
+    toggleClassDialogueBox();
  }
 
- //Clears out the Create Task Dialogue when submit button is pressed.
- function createTaskSubmitBtn(){
-    $('#create-task-dialogue').css('display','none');
-    $('.middle-content').css('opacity', 1);
- }
+ 
 //package up the input fields and send to server.
 
  function submitCreatedTask(){
+
+    
     //form validation
     let validation = false;
     let valueArray = [];
@@ -50,11 +56,11 @@ function startUp(){
         if( field == ""){
             alert('Please fill out all pieces of the form');
             return false;
-        }else{
-            validation = true;  
+        }else{ 
+            validation = true; 
         }
     }
-     
+    
     //AJAX POST call
     if(validation == true){
 
@@ -70,8 +76,8 @@ function startUp(){
             url: '/taskmanager/',
             data: newTask,
             success: (result) =>{
-                console.log(result);
-                createTaskSubmitBtn();    
+                createTaskCancelBtn()
+                toggleClassDialogueBox();
                 getTasks(); 
             }         
         }); // end POST
@@ -85,21 +91,17 @@ function startUp(){
 
  //GET All tasks in database
 function getTasks(){
+    $('#middle-content').empty();
     $.ajax({
         method: 'GET',
         url: '/taskmanager/',
         success: ( response ) =>{
-            appendTaskData(response);        
+            $('#middle-content').empty();
+            appendTaskData(response);  
+            console.log('GET tasks completed');       
         }
     });
 }
-
-
-
-
-
-
-
 
 
 
@@ -109,7 +111,7 @@ function getTasks(){
  *******************************************/
 
  function appendTaskData(taskArray){
-   
+    
 
     //convert date to something easier to read
     function convertDate(date){
@@ -117,14 +119,15 @@ function getTasks(){
        newDate = newDate[0];
        return newDate;
     }
-    
+    //unpack the objects from the array and append them to the DOM
     for(let i=0; i<taskArray.length; i++){
         let task = taskArray[i];
         let due_date = convertDate( task.due_date ); 
         let date_created = convertDate( task.date_created);
         
-        $('#middle-content').append(
-            `<div class="active-task-container" >
+        
+        $('#middle-content').prepend(
+            `<div id="activeTaskContainer" class="active-task-container">
                 <div>
                     <p class="task-name">${task.task}</p>
                     <p class="task-description-label">Task Description</p>  
@@ -134,22 +137,66 @@ function getTasks(){
                     <label class="task-owner-label">Task Owner</label><p class="task-owner-data">${task.task_owner}</p>     
                     <label class="task-due-date-label">Due Date</label><p class="task-due-date">${due_date}</p>          
                     <label class="bold">Date Created:</label><p class="date-created italic">${date_created} </p><br>
-                    <label class="bold not-completed">Completion Status</label><br>
+                    <label id="markComplete" class="bold red">Not Complete</label><br>
                      <i id="deleteBtn" class="fa fa-trash-o icon" aria-hidden="true"></i>
                 </div>
             
             </div>`
         
         ); // end append
-        $('.active-task-container').data(task);
+        $('#activeTaskContainer').data(task);
+        let markGreen = task.completion_status;
+            if( markGreen == true){
+               $('#activeTaskContainer').addClass('completed');
+               $('#markComplete').html('Completed!');
+            }else{console.log('not completed');}
         
-        console.log( $('.active-task-container').data() );
-        
-        
-    }
+    }//end FOR loop
 }// end appendTaskData Function
 
 
+ /***********************
+   DELETE a Selected Task
+  ***********************/
 
- 
- 
+function deleteTask(){
+
+    //validate deletion
+    let confirm = window.confirm("Are you sure you want to delete this task?");
+    if(confirm == true){
+        let task = $(this).parent().parent('#activeTaskContainer').data();
+        
+        //AJAX call
+        $.ajax({
+            method: 'DELETE',
+            url: '/taskmanager/' + task.id,
+            success: function(response){
+                console.log(response);
+                getTasks();
+            }
+        });
+        
+    }
+
+    
+    
+}//end DeleteTask
+
+/**********************
+ * PUT updated completion status
+ **********************/
+
+function updateStatus(){
+
+    let task = $(this).parent().parent('#activeTaskContainer').data();
+    $.ajax({
+        method: 'PUT',
+        url: '/taskmanager/'+ task.id,
+        success: (response)=>{
+            getTasks();
+             
+        }
+    });
+    
+}//end updateStatus function
+

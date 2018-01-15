@@ -23,7 +23,7 @@ CREATE TABLE categories (
 );
 	
 	
---CREATE Junction Table
+--CREATE Junction Table. Not use currently.
 
 CREATE TABLE tasks_categories (
 	id SERIAL PRIMARY KEY,
